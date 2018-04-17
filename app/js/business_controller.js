@@ -7,11 +7,19 @@
 
   function BusinessController(BusinessService) {
     const vm = this;
+
+    vm.businessList = [];
     vm.filter = filter;
 
-    function filter() {
-      
+    BusinessService.getBusinesses().then((res) => {
+      vm.businessList = res.data;
+    });
+
+    function filter(franchise) {
+
     }
+
+
 
   }
 })();

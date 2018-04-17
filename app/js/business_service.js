@@ -11,7 +11,7 @@
     return {
       createSubscriber,
       getSubscribers,
-    }
+    };
 
     function getBusinesses() {
       return $http({
@@ -20,21 +20,21 @@
       });
     }
 
-    function getSubscribers(bId) {
+    function getSubscribers(businessId) {
       return $http({
         method: 'GET',
-        url: `${endpoint}/${bId}/subscribers`,
+        url: `${endpoint}/${businessId}/subscribers`,
       });
     }
 
-    function createSubscriber(name, email, bId) {
+    function createSubscriber(name, email, businessId) {
       const data = {
         name,
         email
       };
       return $http({
         method: 'POST',
-        url: `${endpoint}/${bId}/subscribers`,
+        url: `${endpoint}/${businessId}/subscribers`,
         data,
       });
     }
