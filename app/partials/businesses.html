@@ -1,0 +1,23 @@
+<div ng-controller="BusinessController as vm">
+  <h1> Businesses </h1>
+  <select ng-change="vm.filter()" ng-if="vm.franchises.length" ng-change="filter()" ng-model="vm.selected">
+    <option selected="selected" value=""> All Franchises </option>>
+    <option ng-repeat="franchise in vm.franchises" value="{{ franchise }}"> {{ franchise }} </option>
+  </select>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col"> Name </th>
+        <th scope="col"> Franchise </th>
+        <th scope="col"> Subscribers </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="business in vm.filtered">
+          <td> {{ business.name }} </td>
+          <td> {{ business.franchise }} </td>
+          <td> <a ui-sref="subscribers({ id: business.id })"> Subscribers </a> </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

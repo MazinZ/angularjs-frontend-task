@@ -1,39 +1,37 @@
 (function() {
   angular
       .module('fetchrev', [
-        'ui.bootstrap'
+        'ui.router',
       ]);
 
   angular
       .module('fetchrev')
       .config(config);
 
-  function config($locationProvider) {
+  angular
+      .module('fetchrev')
+      .factory('interceptor', interceptor);
+
+  function config($locationProvider, $httpProvider) {
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
+    $httpProvider.interceptors.push('interceptor');
   }
 
+  function interceptor() {
+    const token = '375932654'; // (mazinz): Should make this configurable.
 
-  // angular
-  //     .module(app_name)
-  //     .factory('Interceptor', ['$q', '$window', '$injector', ($q, $window, $injector) => {
-  //     return {
-  //     'request': function(config) {
-  //           if ($window.localStorage.token) config.headers['Authorization'] = 'Token ' + $window.localStorage.token;
-  //           return config;
-  //       },
-    
-  
-  //       'response': function(response) {
-  //           return response;
-  //       },
-  //       'responseError': function(rejection) {
-  //         if (rejection.status == 401 || rejection.status == 400) {
-  //         $injector.get("Notification").error(rejection.data.non_field_errors[0])
-  //         }
-  //         return $q.reject(rejection);
-  //       }
-  //     };
-  //   }]);
+    return {
+      request: (config) => {
+        config.params = config.params || {};
+        config.params.token = token;
+        return config;
+      },
+      responseError: (err) => {
+        console.log(err);
+        return err;
+      }
+    };
+  }
 
 })();

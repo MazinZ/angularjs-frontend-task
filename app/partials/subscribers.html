@@ -1,0 +1,29 @@
+<div ng-controller="SubscriberController as vm">
+  <h1> Subscribers </h1>
+  <select ng-change="vm.filter()" ng-if="vm.statuses.length" ng-model="vm.selected">
+    <option selected="selected" value=""> All Statuses </option>>
+    <option ng-repeat="status in vm.statuses" value="{{ status }}"> {{ status }} </option>
+  </select>
+  <form ng-submit="vm.create()">
+    <h3> Add new subscriber </h3>
+    <input placeholder="Name" type="text" ng-model="vm.newSubscriber.name" />
+    <input placeholder="Email" type="email" ng-model="vm.newSubscriber.email" />
+    <button type="submit" class="btn btn-primary"> Add </button>
+  </form>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col"> Name </th>
+        <th scope="col"> Email </th>
+        <th scope="col"> Status </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="subscriber in vm.filtered">
+          <td> {{ subscriber.name }} </td>
+          <td> {{ subscriber.email }} </td>
+          <td> {{ subscriber.status }} </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

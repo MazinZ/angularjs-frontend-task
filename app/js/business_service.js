@@ -6,10 +6,11 @@
   BusinessService.$inject = ['$http'];
 
   function BusinessService($http) {
-    const endpoint = 'https://young-temple-44207.herokuapp.com/businesses/';
+    const endpoint = 'https://young-temple-44207.herokuapp.com/businesses';
 
     return {
       createSubscriber,
+      getBusinesses,
       getSubscribers,
     };
 
@@ -29,8 +30,10 @@
 
     function createSubscriber(name, email, businessId) {
       const data = {
-        name,
-        email
+        subscriber: {
+          name,
+          email
+        }
       };
       return $http({
         method: 'POST',
