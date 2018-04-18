@@ -15,5 +15,6 @@ live-server --port=8080 --entry-file=index.html
 ## Test
 
 ```
+npm install -g karma-cli
 npm test
 ```
