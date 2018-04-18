@@ -20,21 +20,6 @@
     $httpProvider.interceptors.push('interceptor');
   }
 
-  angular
-      .module('notification', ['ui-notification'])
-      .config(function(NotificationProvider) {
-        NotificationProvider.setOptions({
-          delay: 10000,
-          startTop: 20,
-          startRight: 10,
-          verticalSpacing: 20,
-          horizontalSpacing: 20,
-          positionX: 'right',
-          positionY: 'bottom',
-          closeOnClick: false
-        });
-  });
-
   interceptor.$inject = ['$injector']
 
   function interceptor($injector) {
@@ -47,10 +32,26 @@
         return config;
       },
       responseError: (err) => {
-        $injector.get("Notification").error(err.message || 'Error');
+        console.log(err)
+        $injector.get("Notification").error(err.data.message || 'Error');
         return err;
       }
     };
   }
+
+  angular
+      .module('notification', ['ui-notification'])
+      .config((NotificationProvider) => {
+        NotificationProvider.setOptions({
+          delay: 10000,
+          startTop: 20,
+          startRight: 10,
+          verticalSpacing: 20,
+          horizontalSpacing: 20,
+          positionX: 'right',
+          positionY: 'bottom',
+          closeOnClick: false
+      });
+  });
 
 })();

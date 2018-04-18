@@ -30,16 +30,14 @@
 
     function createSubscriber(name, email, businessId) {
       const data = {
-        subscriber: {
-          name,
-          email
-        }
+        'subscriber[name]': name,
+        'subscriber[email]': email,
       };
 
       return $http({
         method: 'POST',
         url: `${endpoint}/${businessId}/subscribers`,
-        data,
+        params: data
       });
     }
 

@@ -38,9 +38,8 @@
     function create() {
       const name = vm.newSubscriber.name;
       const email = vm.newSubscriber.email;
-      console.log(name, email)
       BusinessService.createSubscriber(name, email, businessId).then((res) => {
-        // (mazinz): We don't need another API call here, can push directly to filtered.
+        // (mazinz): We don't *need* another API call here, can push directly to filtered.
         getSubscribers();
       });
     }

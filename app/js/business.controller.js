@@ -19,7 +19,6 @@
       vm.businesses = res.data.businesses;
       vm.filtered = [...vm.businesses];
       vm.franchises = [...new Set(vm.businesses.map(b => b.franchise))];
-      console.log(vm.businesses)
     });
 
     function filter() {
