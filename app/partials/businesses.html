@@ -9,6 +9,7 @@
       <tr>
         <th scope="col"> Name </th>
         <th scope="col"> Franchise </th>
+        <th scope="col"> Revenue </th>
         <th scope="col"> Subscribers </th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
         <tr ng-repeat="business in vm.filtered">
           <td> {{ business.name }} </td>
           <td> {{ business.franchise }} </td>
+          <td> {{ business.revenue_to_date_in_cents/100 | currency }} </td>
           <td> <a ui-sref="subscribers({ id: business.id })"> Subscribers </a> </td>
         </tr>
     </tbody>
