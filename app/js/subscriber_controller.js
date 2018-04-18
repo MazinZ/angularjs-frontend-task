@@ -38,6 +38,7 @@
     function create() {
       const name = vm.newSubscriber.name;
       const email = vm.newSubscriber.email;
+      console.log(name, email)
       BusinessService.createSubscriber(name, email, businessId).then((res) => {
         getSubscribers();
       });

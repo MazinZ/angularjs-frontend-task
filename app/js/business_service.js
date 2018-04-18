@@ -35,6 +35,7 @@
           email
         }
       };
+
       return $http({
         method: 'POST',
         url: `${endpoint}/${businessId}/subscribers`,

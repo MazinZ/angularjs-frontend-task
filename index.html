@@ -2,11 +2,9 @@
   <title> FetchRev </title>
   <head>
       <base href="/">
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
-      <script src="https://unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <script src="/app/build/all.js"></script>
+      <link rel="stylesheet" type="text/css" href="/bower_components/angular-loading-bar/build/loading-bar.min.css">
+      <link rel="stylesheet" type="text/css" href="/bower_components/angular-ui-notification/dist/angular-ui-notification.min.css">
       <link rel="stylesheet" type="text/css" href="/app/build/main.css">
   </head>
 
@@ -14,5 +12,12 @@
     <div class="container">
       <ui-view></ui-view>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
+    <script src="https://unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="/bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+    <script src="/app/build/all.js"></script>
   </body>
 </html>

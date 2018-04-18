@@ -1,6 +1,6 @@
 <div ng-controller="BusinessController as vm">
   <h1> Businesses </h1>
-  <select ng-change="vm.filter()" ng-if="vm.franchises.length" ng-change="filter()" ng-model="vm.selected">
+  <select ng-change="vm.filter()" ng-if="vm.franchises.length" ng-change="filter()" ng-model="vm.selected" class="form-control">
     <option selected="selected" value=""> All Franchises </option>>
     <option ng-repeat="franchise in vm.franchises" value="{{ franchise }}"> {{ franchise }} </option>
   </select>

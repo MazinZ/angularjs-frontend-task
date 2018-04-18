@@ -2,6 +2,8 @@
   angular
       .module('fetchrev', [
         'ui.router',
+        'angular-loading-bar',
+        'notification',
       ]);
 
   angular
@@ -18,7 +20,24 @@
     $httpProvider.interceptors.push('interceptor');
   }
 
-  function interceptor() {
+  angular
+      .module('notification', ['ui-notification'])
+      .config(function(NotificationProvider) {
+        NotificationProvider.setOptions({
+          delay: 10000,
+          startTop: 20,
+          startRight: 10,
+          verticalSpacing: 20,
+          horizontalSpacing: 20,
+          positionX: 'right',
+          positionY: 'bottom',
+          closeOnClick: false
+        });
+  });
+
+  interceptor.$inject = ['$injector']
+
+  function interceptor($injector) {
     const token = '375932654'; // (mazinz): Should make this configurable.
 
     return {
@@ -28,7 +47,7 @@
         return config;
       },
       responseError: (err) => {
-        console.log(err);
+        $injector.get("Notification").error(err.message || 'Error');
         return err;
       }
     };

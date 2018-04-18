@@ -1,0 +1,20 @@
+{
+  "name": "fetchrev-task",
+  "homepage": "https://github.com/MazinZ/fetchrev-task",
+  "authors": [
+    "Mazin Zakaria <mazinzakaria1@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-notification": "^0.3.6"
+  }
+}
