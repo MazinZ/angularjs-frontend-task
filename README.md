@@ -1,8 +1,8 @@
-# fetchrev-task
+# AngularJS Front-end task
 
 ## Setup
 
-Hosted at: http://167.99.148.62/
+~~Hosted at: http://167.99.148.62/~~
 
 ```
 npm install
